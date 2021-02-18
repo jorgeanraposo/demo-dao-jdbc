@@ -3,8 +3,8 @@ package application;
 import java.util.Date;
 import java.util.List;
 
+import model.dao.DaoFactory;
 import model.dao.SellerDao;
-import model.dao.impl.DaoFactory;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -36,6 +36,11 @@ public class Program {
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New id = " + newSeller.getId());
 
+		System.out.println("\n=== TEST 5: seller Upadate ===");
+		seller = sellerDao.findById(1);
+		seller.setName("Martha Waine");
+		sellerDao.update(seller);
+		System.out.println("Update completed");
 		
 	}
 
